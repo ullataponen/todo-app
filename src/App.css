@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 .App {
 	text-align: center;
 }
@@ -15,6 +19,7 @@
 	justify-content: center;
 	font-size: calc(10px + 2vmin);
 	color: white;
+	padding: 10px;
 }
 
 .App-link {
@@ -22,5 +27,31 @@
 }
 
 table {
-	margin: auto;
+	margin: 10px auto 0;
+}
+
+th,
+td {
+	padding: 5px;
+	min-width: 150px;
+	border-bottom: 1px solid #eee;
+}
+
+input {
+	padding: 5px;
+	margin: 0 10px;
+}
+
+button {
+	background-color: #282c34;
+	color: #fff;
+	border: 1px solid transparent;
+	padding: 8px 20px;
+}
+
+button:hover {
+	background-color: #fff;
+	color: #282c34;
+	border: 1px solid #282c34;
+	transition: ease-out 0.2s;
 }
