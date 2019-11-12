@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [desc, setDesc] = useState("");
+	const [todos, setTodos] = useState([]);
+
+	const inputChanged = event => {
+		setDesc(event.target.value);
+	};
+
+	const addTodo = event => {
+		event.preventDefault();
+		setTodos([...todos, desc]);
+	};
+
+	return (
+		<div className="App">
+			<h1 className="App-header">To Do List</h1>
+			<input type="text" onChange={inputChanged} value={desc} />
+			<button onClick={addTodo}>Add</button>
+			<table>
+				<tbody>
+					{todos.map((todo, index) => (
+						<tr key={index}>
+							<td>{todo}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+	);
 }
 
 export default App;
