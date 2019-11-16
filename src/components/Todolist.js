@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TodoTable from "./TodoTable";
 
 const Todolist = () => {
   const [todo, setTodo] = useState({ desc: "", date: "" });
@@ -33,32 +34,7 @@ const Todolist = () => {
         value={todo.desc}
       />
       <button onClick={addTodo}>Add</button>
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Description</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {todos.map((todo, index) => (
-            <tr key={index}>
-              <td>{todo.date}</td>
-              <td>{todo.desc}</td>
-              <td>
-                <button
-                  className="del"
-                  id={index}
-                  onClick={e => delItem(todo, index)}
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <TodoTable todos={todos} delItem={delItem} />
     </div>
   );
 };
